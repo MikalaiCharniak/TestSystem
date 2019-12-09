@@ -1,0 +1,12 @@
+﻿{
+  "Tests": [
+    {
+      "name": "CheckComparisonProduct",
+      "exptectedProductForCompare": 3
+    },
+    {
+      "name": "CheckSearchFunction",
+      "searchVariable": "кофеварки"
+    }
+  ]
+}
