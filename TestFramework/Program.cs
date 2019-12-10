@@ -1,5 +1,6 @@
 ﻿using NUnitLite;
 using System;
+using System.IO;
 using System.Reflection;
 using TestFramework.Core.Settings;
 
@@ -15,7 +16,7 @@ namespace TestFramework
             EnvironmentSettings.CurrentConfiguration = args[1];
             var testRunner = new AutoRun(Assembly.GetExecutingAssembly());
             //TODO: expire with docs https://github.com/nunit/docs/wiki/Console-Command-Line
-            string[] test = new string[] { "--test:TestFramework.Tests.Source.Tests.CheckComparisonProduct" };
+            string[] test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//tests_sample.txt" };
             testRunner.Execute(test);
             
         }

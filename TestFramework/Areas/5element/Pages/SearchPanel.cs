@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using TestFramework.Core.Driver;
 
 namespace TestFramework.Areas._5element.Pages
 {
@@ -6,11 +7,11 @@ namespace TestFramework.Areas._5element.Pages
     {
         private static string NoResultsMessageByXPath = ".//div[@class='multi-noResults']";
         private static string AllResultsByXPath = ".//span[@class='multi-badge']";
-        public static bool IsNoResults(IWebDriver _driver)
+        public static bool IsNoResults()
         {
             try
             {
-                var noResultsMessage = _driver.FindElement(By.XPath(NoResultsMessageByXPath));
+                var noResultsMessage = DriverInstance.GetInstance().FindElement(By.XPath(NoResultsMessageByXPath));
             }
             catch (NoSuchElementException ex)
             {
@@ -19,9 +20,9 @@ namespace TestFramework.Areas._5element.Pages
             return NoResultsMessageByXPath == null ? false : true;
         }
 
-        public static bool IsNotZeroResults(IWebDriver _driver)
+        public static bool IsNotZeroResults()
         {
-            var allResultsBage = _driver.FindElements(By.XPath(AllResultsByXPath))[0];
+            var allResultsBage = DriverInstance.GetInstance().FindElements(By.XPath(AllResultsByXPath))[0];
             var foundProductsCount = int.Parse(allResultsBage.GetAttribute("innerHTML"));
             return foundProductsCount > 0 ? true : false;
         }

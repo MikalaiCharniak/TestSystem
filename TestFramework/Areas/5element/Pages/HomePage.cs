@@ -1,10 +1,10 @@
 ﻿using OpenQA.Selenium;
-using TestFramework.Core.Abstractions;
 using TestFramework.Areas._5element.Infrastructure;
+using TestFramework.Areas._5element.Pages.Base;
 
 namespace TestFramework.Areas._5element.Pages
 {
-    public class HomePage : Page
+    public class HomePage : FiveElementPageBase
     {
         public HomePage(IWebDriver driver)
         {

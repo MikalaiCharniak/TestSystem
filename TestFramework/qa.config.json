@@ -1,12 +1,8 @@
 ﻿{
-  "Tests": [
-    {
-      "name": "CheckComparisonProduct",
-      "exptectedProductForCompare": 3
-    },
-    {
-      "name": "CheckSearchFunction",
-      "searchVariable": "кофеварки"
-    }
-  ]
+  "CheckComparisonProduct": {
+    "exptectedProductForCompare": 3
+  },
+  "CheckSearchFunction": {
+    "searchVariable": "кофеварки"
+  }
 }
