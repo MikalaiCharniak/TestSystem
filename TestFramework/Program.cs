@@ -16,7 +16,7 @@ namespace TestFramework
             EnvironmentSettings.CurrentConfiguration = args[1];
             var testRunner = new AutoRun(Assembly.GetExecutingAssembly());
             //TODO: expire with docs https://github.com/nunit/docs/wiki/Console-Command-Line
-            string[] test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//tests_sample.txt" };
+            string[] test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//{args[2]}" };
             testRunner.Execute(test);
             
         }
