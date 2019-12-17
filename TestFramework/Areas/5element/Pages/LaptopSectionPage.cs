@@ -12,6 +12,7 @@ namespace TestFramework.Areas._5element.Pages
         private const string _compareWindowXPath = ".//a[@class='js-bottom-compare']";
         private const string _cartButtonsXPath = "//div[@class='row flex-buy-buttons-mob-listing']/button[1]";
         private const string _cartModalCloseButtonXPath = "//button[@class='mfp-close']";
+        private const string _productLinksXPath = "//a[@class='product-link']";
         private IWebElement _compareWindow;
         public LaptopSectionPage(IWebDriver driver)
         {
@@ -26,6 +27,14 @@ namespace TestFramework.Areas._5element.Pages
                     InitPageFromHomePage();
                     break;
             }
+        }
+
+        public void SelectProduct()
+        {
+            var firstProductLink = _driver.FindElements(By.XPath(_productLinksXPath))[1];
+            Thread.Sleep(1000);
+            ScrollToElement(_driver, firstProductLink);
+            _driver.Navigate().GoToUrl(firstProductLink.GetAttribute("href"));
         }
         public void AddLaptopsToCompare(int laptopsNumber)
         {

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using TestFramework.Areas._5element.Pages;
+using TestFramework.Areas._5element.Pages.Common;
 using TestFramework.Core.Driver;
 using TestFramework.Core.Settings;
 
@@ -25,6 +26,13 @@ namespace TestFramework.Areas._5element.Steps
         {
             var comparePage = new ComparePage(_driver);
             return comparePage;
+        }
+
+        public static bool IsTransitionBetweenProductTabs()
+        {
+            var IsServicesTab = ProductPageCommon.GoToServicesAnchor(_driver);
+            var IsDescriptionTab = ProductPageCommon.GoToDescriptionAnchor(_driver);
+            return IsServicesTab && IsDescriptionTab;
         }
 
         public static void CloseBrowser()
