@@ -17,6 +17,8 @@ namespace TestFramework.Areas._5element.Pages
 
         public DeliveryPage GoToDeliveryPage() =>
             new DeliveryPage(_driver, PageUrl);
+        public LoginPage GoToLoginPage() =>
+            new LoginPage(_driver, PageUrl);
 
         public void GoToPage() =>
             _driver.Navigate().GoToUrl(PageUrl);

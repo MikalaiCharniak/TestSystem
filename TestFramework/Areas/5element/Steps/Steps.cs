@@ -35,6 +35,18 @@ namespace TestFramework.Areas._5element.Steps
             return IsServicesTab && IsDescriptionTab;
         }
 
+        public static void OpenModalAndWriteQuestionProduct()
+        {
+            if (ProductPageCommon.GoToFAQAnchor(_driver))
+                ProductPageCommon.OpenFAQWindowAndWriteQuestion(_driver);
+        }
+
+        public static void OpenModalAndWriteReviewProduct()
+        {
+            if (ProductPageCommon.GoToReviewAnchor(_driver))
+                ProductPageCommon.OpenReviewWindowAndWriteReview(_driver);
+        }
+
         public static void CloseBrowser()
         {
             DriverInstance.CloseBrowser();

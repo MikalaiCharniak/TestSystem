@@ -7,5 +7,9 @@
   },
   "CheckDeliveryPage": {
     "expectedBreadcrumbTitle": "Главная Услуги Доставка и самовывоз"
+  },
+  "LoginUser": {
+    "Email": "nickezti@yandex.ru",
+    "Password": "Password123"
   }
 }
