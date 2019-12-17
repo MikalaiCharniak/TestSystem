@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Threading;
+using TestFramework.Areas._5element.Models;
+using TestFramework.Areas._5element.Pages.Modals;
 
 namespace TestFramework.Areas._5element.Pages.Common
 {
@@ -7,7 +9,7 @@ namespace TestFramework.Areas._5element.Pages.Common
     {
         private const string _activeTabCssClass = "active";
         private const string _productDescriptionAnchorXPath = ".//a[@href='#description']";
-        private const string _productCharacteristicsAnchorXPath = ".//a[@href='#characteristics']";
+        //private const string _productCharacteristicsAnchorXPath = ".//a[@href='#characteristics']";
         private const string _productServicesAnchorXPath = ".//a[@href='#services']";
         private const string _productReviewsAnchorXPath = ".//a[@href='#reviews-block']";
         private const string _productFAQAnchorXPath = ".//a[@href='#faq-block']";
@@ -58,16 +60,18 @@ namespace TestFramework.Areas._5element.Pages.Common
             return parentActiveTag.GetAttribute("class") == _activeTabCssClass;
         }
 
-        public static void OpenFAQWindowAndWriteQuestion(IWebDriver driver)
+        public static bool OpenFAQWindowAndWriteQuestion(IWebDriver driver, ProductQuestion productQuestion)
         {
             var FAQModalButton = driver.FindElement(By.XPath(_buttonFAQModalXPath));
             FAQModalButton.Click();
+            return FAQModal.FillQuestionForm(driver, productQuestion);
         }
 
-        public static void OpenReviewWindowAndWriteReview(IWebDriver driver)
+        public static bool OpenReviewWindowAndWriteReview(IWebDriver driver, ProductReview productReview)
         {
             var reviewModalButton = driver.FindElement(By.XPath(_buttonReviewModalXPath));
             reviewModalButton.Click();
+            return ReviewModal.FillReviewForm(driver,productReview);
         }
     }
 }

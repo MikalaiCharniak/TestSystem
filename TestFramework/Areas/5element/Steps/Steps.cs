@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using TestFramework.Areas._5element.Models;
 using TestFramework.Areas._5element.Pages;
 using TestFramework.Areas._5element.Pages.Common;
 using TestFramework.Core.Driver;
@@ -35,16 +36,18 @@ namespace TestFramework.Areas._5element.Steps
             return IsServicesTab && IsDescriptionTab;
         }
 
-        public static void OpenModalAndWriteQuestionProduct()
+        public static bool OpenModalAndWriteQuestionProduct(ProductQuestion productQuestion)
         {
             if (ProductPageCommon.GoToFAQAnchor(_driver))
-                ProductPageCommon.OpenFAQWindowAndWriteQuestion(_driver);
+                return ProductPageCommon.OpenFAQWindowAndWriteQuestion(_driver, productQuestion);
+            return false;
         }
 
-        public static void OpenModalAndWriteReviewProduct()
+        public static bool OpenModalAndWriteReviewProduct(ProductReview productReview)
         {
             if (ProductPageCommon.GoToReviewAnchor(_driver))
-                ProductPageCommon.OpenReviewWindowAndWriteReview(_driver);
+                return ProductPageCommon.OpenReviewWindowAndWriteReview(_driver, productReview);
+            return false;
         }
 
         public static void CloseBrowser()

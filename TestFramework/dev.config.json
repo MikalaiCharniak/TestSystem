@@ -11,5 +11,17 @@
   "LoginUser": {
     "Email": "nickezti@yandex.ru",
     "Password": "Password123"
+  },
+  "WriteProductReply": {
+    "City": "Минск",
+    "Grade": 4,
+    "ProductAdvantages": "Some advantages",
+    "ProductDisadvantages": "Some disadvantages",
+    "ReviewBody":  "Some review"
+  },
+  "WriteProductQuestion": {
+    "City": "Минск",
+    "PhoneNumber": "+375296276876",
+    "QuestionBody": "Some question text?"
   }
 }

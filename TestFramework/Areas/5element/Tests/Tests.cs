@@ -18,9 +18,9 @@ namespace TestFramework.Tests.Source
         private string _searchVariable;
         private string _expectedBreadcrumbTitle;
         private int _expectedCountProductsInCart;
-        private User _user = new User();
-        private readonly ILogger _logger;
-
+        private User _user;
+        private ProductQuestion _question;
+        private ProductReview _review;
         [SetUp]
         public void Setup()
         {
@@ -28,8 +28,9 @@ namespace TestFramework.Tests.Source
             _exptectedProductForCompare = int.Parse(_configuration[
                 "CheckComparisonProduct:exptectedProductForCompare"]);
             _searchVariable = _configuration["CheckSearchFunction:searchVariable"];
-            _user.Email = _configuration["LoginUser:Email"];
-            _user.Password = _configuration["LoginUser:Password"];
+            _user = new User(_configuration);
+            _review = new ProductReview(_configuration);
+            _question = new ProductQuestion(_configuration);
             //_expectedBreadcrumbTitle = _configuration[""];
             //_expectedCountProductsInCart = int.Parse(_configuration[""]);
             
@@ -143,10 +144,15 @@ namespace TestFramework.Tests.Source
             {
                 var homePage = Steps.GetAndOpenHomePage();
                 homePage.GoToPage();
+                var loginPage = homePage.GoToLoginPage();
+                loginPage.SwitchToEmailLoginTab();
+                loginPage.FillAuthFields(_user);
+                loginPage.Login();
+                homePage.GoToPage();
                 var laptopSectionPage = homePage.GoToLaptopSectionPage();
                 laptopSectionPage.SelectProduct();
-                Steps.OpenModalAndWriteQuestionProduct();
-                Assert.IsTrue(true);
+                var result = Steps.OpenModalAndWriteQuestionProduct(_question);
+                Assert.IsTrue(result);
             });
         }
         [Test]
@@ -156,10 +162,15 @@ namespace TestFramework.Tests.Source
             {
                 var homePage = Steps.GetAndOpenHomePage();
                 homePage.GoToPage();
+                var loginPage = homePage.GoToLoginPage();
+                loginPage.SwitchToEmailLoginTab();
+                loginPage.FillAuthFields(_user);
+                loginPage.Login();
+                homePage.GoToPage();
                 var laptopSectionPage = homePage.GoToLaptopSectionPage();
                 laptopSectionPage.SelectProduct();
-                Steps.OpenModalAndWriteReviewProduct();
-                Assert.IsTrue(true);
+                var result =  Steps.OpenModalAndWriteReviewProduct(_review);
+                Assert.IsTrue(result);
             });
         }
     }
