@@ -4,5 +4,8 @@
   },
   "CheckSearchFunction": {
     "searchVariable": "ноутбуки"
+  },
+  "CheckDeliveryPage": {
+    "expectedBreadcrumbTitle": "Главная Услуги Доставка и самовывоз"
   }
 }

@@ -1,10 +1,10 @@
 ﻿using OpenQA.Selenium;
 using TestFramework.Areas._5element.Infrastructure;
-using TestFramework.Core.Abstractions;
+using TestFramework.Areas._5element.Pages.Base;
 
 namespace TestFramework.Areas._5element.Pages
 {
-    public class ComparePage : Page
+    public class ComparePage : FiveElementPageBase
     {
         private const string compareProductsArrayByXPath =
             ".//div[@class='product-item product-item-shortblock item js-product-item']";

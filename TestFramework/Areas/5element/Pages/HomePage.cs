@@ -15,6 +15,9 @@ namespace TestFramework.Areas._5element.Pages
         public LaptopSectionPage GoToLaptopSectionPage() =>
     new LaptopSectionPage(_driver, PageUrl);
 
+        public DeliveryPage GoToDeliveryPage() =>
+            new DeliveryPage(_driver, PageUrl);
+
         public void GoToPage() =>
             _driver.Navigate().GoToUrl(PageUrl);
     }
