@@ -23,11 +23,13 @@ namespace TestFramework
             string[] test;
             try
             {
-                 test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//{args[2]}" };
+                var currentDirectory = Directory.GetCurrentDirectory();
+                var file = args[2];
+                test = new string[] { "--testlist:" + currentDirectory + "\\" + file };
             }
             catch (Exception ex)
             {
-                 test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}\\{args[2]}" };
+                test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//{args[2]}" };
             }
             testRunner.Execute(test);
 
