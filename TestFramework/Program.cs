@@ -20,7 +20,15 @@ namespace TestFramework
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             var serviceProvider = serviceCollection.BuildServiceProvider();
-            string[] test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//{args[2]}" };
+            string[] test;
+            try
+            {
+                 test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}//{args[2]}" };
+            }
+            catch (Exception ex)
+            {
+                 test = new string[] { $"--testlist:{Directory.GetCurrentDirectory()}\\{args[2]}" };
+            }
             testRunner.Execute(test);
 
         }
