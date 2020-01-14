@@ -4,5 +4,27 @@
   },
   "CheckSearchFunction": {
     "searchVariable": "кофеварки"
+  },
+  "LoginUser": {
+    "Email": "nickezti@yandex.ru",
+    "Password": "Password123"
+  },
+  "WriteProductReply": {
+    "City": "Гомель",
+    "Grade": 5,
+    "ProductAdvantages": "Some advantages QA",
+    "ProductDisadvantages": "Some disadvantages QA",
+    "ReviewBody": "Some review QA"
+  },
+  "WriteProductQuestion": {
+    "City": "Гродно",
+    "PhoneNumber": "+375296276876",
+    "QuestionBody": "Some question text QA?"
+  },
+  "CheckAddingProductsToCart": {
+    "expectedCountProductsInCart": "2"
+  },
+  "CheckDeliveryPage": {
+    "expectedBreadcrumbTitle": "Главная Услуги Доставка и самовывоз"
   }
 }
