@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using System.IO;
 using System.Threading;
@@ -31,9 +30,10 @@ namespace TestFramework.Tests.Source
             _user = new User(_configuration);
             _review = new ProductReview(_configuration);
             _question = new ProductQuestion(_configuration);
-            //_expectedBreadcrumbTitle = _configuration[""];
-            //_expectedCountProductsInCart = int.Parse(_configuration[""]);
-            
+            _expectedBreadcrumbTitle = _configuration["CheckDeliveryPage:expectedBreadcrumbTitle"];
+            _expectedCountProductsInCart = int.Parse(
+                _configuration["CheckAddingProductsToCart:expectedCountProductsInCart"]);
+
             Steps.InitBrowser();
         }
 

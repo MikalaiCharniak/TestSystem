@@ -10,6 +10,7 @@
     <None Remove="dev.config.json" />
     <None Remove="qa.config.json" />
     <None Remove="tests_sample.txt" />
+    <None Remove="tests_sample_2.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="tests_sample.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tests_sample_2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

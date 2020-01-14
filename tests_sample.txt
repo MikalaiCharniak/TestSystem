@@ -1,1 +1,3 @@
-﻿TestFramework.Tests.Source.Tests.CheckComparisonProduct
+﻿TestFramework.Tests.Source.Tests.CheckSearchFunction
+TestFramework.Tests.Source.Tests.WriteProductReply
+TestFramework.Tests.Source.Tests.CheckViewProduct
